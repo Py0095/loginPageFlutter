@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyhommePage(),
     );
   }
@@ -85,8 +86,13 @@ class _LoginFom extends State<LoginForm> {
               Text('Accept all conditions')
             ]),
 
+             
+
             ElevatedButton(
               onPressed: () {
+                 String username =_username;
+              String password =_password;
+              bool accept =_accept;
                 if (_formkey.currentState!.validate() && _accept) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text('Formulaire soumis avec success')));
@@ -95,7 +101,7 @@ class _LoginFom extends State<LoginForm> {
                       content: Text('Veuiller remplir tous les chammps et accepter les condition')));
                 }
 
-                print('Soumet');
+                print('Username: $username \nPassword: $password \nAccept: $accept');
               },
               child: Text('Soumet'),
             )
